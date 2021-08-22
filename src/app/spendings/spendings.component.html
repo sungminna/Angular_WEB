@@ -1,0 +1,10 @@
+<h2>My Spendings</h2>
+<ul class="spendings">
+    <li *ngFor="let spending of spendings" 
+    [class.selected]="spending === selectedSpending"
+    (click)="onSelect(spending)">
+        <span class="badge">{{spending.id}}</span> {{spending.name}}
+    </li>
+</ul>
+
+<app-spending-detail [spending]="selectedSpending"></app-spending-detail>
