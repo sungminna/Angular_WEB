@@ -1,10 +1,10 @@
 <h2>My Spendings</h2>
 <ul class="spendings">
-    <li *ngFor="let spending of spendings" 
-    [class.selected]="spending === selectedSpending"
-    (click)="onSelect(spending)">
+    <li *ngFor="let spending of spendings">
+      <a routerLink="/detail/{{spending.id}}">
         <span class="badge">{{spending.id}}</span> {{spending.name}}
+      </a>
     </li>
-</ul>
+  </ul>
 
 <app-spending-detail [spending]="selectedSpending"></app-spending-detail>

@@ -1,0 +1,6 @@
+<h2>Top Spendings</h2>
+<div class="spendings-menu">
+    <a *ngFor="let spending of spendings" routerLink="/detail/{{spending.id}}">
+        {{spending.name}}
+    </a>
+</div>

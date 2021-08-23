@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { SpendingService } from '../spending.service';
 import { Spending } from '../spending';
 
 @Component({
@@ -11,9 +14,20 @@ export class SpendingDetailComponent implements OnInit {
 
   @Input() spending?: Spending;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute, 
+    private spendingService: SpendingService, 
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
+    this.getSpending();
   }
 
+  getSpending(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.spendingService.getSpending(id).subscribe(spending => this.spending = spending);
+  }
+  
+  
 }
