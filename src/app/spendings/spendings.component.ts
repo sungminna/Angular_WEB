@@ -30,6 +30,20 @@ export class SpendingsComponent implements OnInit {
   getSpendings(): void{
     this.spendingService.getSpendings().subscribe(spendings => this.spendings = spendings);
   }
+
+  add(name: string): void{
+    name = name.trim();
+    if(!name) {return;}
+    this.spendingService.addSpending({name} as Spending)
+      .subscribe(spending => {
+        this.spendings.push(spending);
+      })
+  }
+
+  delete(spending: Spending): void{
+    this.spendings = this.spendings.filter(h => h !== spending);
+    this.spendingService.deleteSpending(spending.id).subscribe();
+  }
 }
 
 

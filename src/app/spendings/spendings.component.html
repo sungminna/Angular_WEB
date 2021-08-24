@@ -1,9 +1,19 @@
 <h2>My Spendings</h2>
+<div>
+  <label for="new-spending">Spending name: </label>
+  <input id="new-spending" #spendingName>
+
+  <button class="add-button" (click)="add(spendingName.value); spendingName.value=''">
+    Add spending
+  </button>
+</div>
 <ul class="spendings">
     <li *ngFor="let spending of spendings">
       <a routerLink="/detail/{{spending.id}}">
         <span class="badge">{{spending.id}}</span> {{spending.name}}
       </a>
+      <button class="delete" title="delete spending"
+        (click)="delete(spending)">x</button>
     </li>
   </ul>
 

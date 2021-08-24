@@ -10,18 +10,24 @@ import { SpendingDetailComponent } from './spending-detail/spending-detail.compo
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { SpendingSearchComponent } from './spending-search/spending-search.component';
 @NgModule({
   declarations: [
     AppComponent,
     SpendingsComponent,
     SpendingDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    SpendingSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

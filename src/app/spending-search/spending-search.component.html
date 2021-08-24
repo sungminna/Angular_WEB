@@ -1,0 +1,12 @@
+<div id="search-component">
+    <lable for="search-box">Spending Search</lable>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)">
+
+    <ul class="search-result">
+        <li *ngFor="let spending for spendings$ | async">
+            <a routerLink="/detail/{{spenidng.id}}">
+            {{spending.name}}
+            </a>
+        </li>
+    </ul>
+</div>

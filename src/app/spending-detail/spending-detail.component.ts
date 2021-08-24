@@ -29,5 +29,11 @@ export class SpendingDetailComponent implements OnInit {
     this.spendingService.getSpending(id).subscribe(spending => this.spending = spending);
   }
   
+  save(): void{
+    if(this.spending){
+      this.spendingService.updateSpending(this.spending)
+        .subscribe(() => this.goBack());
+    }
+  }
   
 }
